@@ -14,4 +14,3 @@ dependencies:
       - unsloth             # 极速 LoRA 微调
       - gradio              # 离线 UI demo
       - rich                # 漂亮 CLI 日志
-      - tflite-runtime==2.14.0 # Edge TPU 依赖（编译时用）
