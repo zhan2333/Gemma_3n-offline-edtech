@@ -63,7 +63,7 @@ Gemma_3n-offline-edtech/
 
 ## 🏁 里程碑
 
-# 1️⃣ LoRA 快速微调
+### 1️⃣ LoRA 快速微调
 
 ```bash
 python train_lora.py \
@@ -73,7 +73,7 @@ python train_lora.py \
 # 输出 models/skill_math_3n.lora
 ```
 
-# 2️⃣ Edge-TPU 转换 & Benchmark
+### 2️⃣ Edge-TPU 转换 & Benchmark
 
 ```bash
 # 导出 HF 权重（一次性）
