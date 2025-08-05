@@ -1,6 +1,6 @@
-# Gemma_3n-offline-edtech
+# Gemma 3n Offline EdTech Toolkit 🚀
 
-让 **Gemma 3n** 在 0 网络现场当老师，Edge TPU 超充，教育平权。
+让 **Gemma 3n** 在 0 网络 的教室里当老师：本地微调 + 离线推理 + （可选）Edge-TPU 加速，面向弱网/断网地区的 AI 教学平权。
 
 ---
 
