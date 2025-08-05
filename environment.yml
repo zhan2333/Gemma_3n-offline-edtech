@@ -1,10 +1,17 @@
-name: gemma-demo
-channels: [conda-forge]
+name: gemma-demo            # 环境名字，随喜
+channels:
+  - conda-forge             # 用 conda-forge 省心
+  - pytorch                 # 额外拉 PyTorch Mac Wheels
 dependencies:
   - python=3.11
-  - pip
+  - pip                     # always
+  - numpy                   # 基础数学
+  - protobuf                # 解决 ollama grpc 依赖
+  # ---- GPU / TPU / ML 核心 ----
+  - pytorch::pytorch        # conda 会自动给 Apple Silicon 装 Metal 版
   - pip:
-      - torch>=2.2
-      - ollama
-      - unsloth
-      - gradio
+      - ollama              # 拉 Gemma 3n 权重
+      - unsloth             # 极速 LoRA 微调
+      - gradio              # 离线 UI demo
+      - rich                # 漂亮 CLI 日志
+      - tflite-runtime==2.14.0 # Edge TPU 依赖（编译时用）
