@@ -6,12 +6,16 @@ Works on Ollama 0.10.1 (no export command).
 import json, os, pathlib, shutil, sys, glob
 
 MODEL_NAME = "gemma3n"           # 换成 "gemma3n:e2b" 可省空间
+BASE_NAME = MODEL_NAME.split(":")[0]   # 只匹配主模型名（忽略 :tag）
 ROOT = pathlib.Path.home() / ".ollama" / "models"
 
 # 1. 找 manifest
 manifest = None
 for mf in (ROOT / "manifests").glob("*.json"):
-    if json.load(open(mf)).get("name") == MODEL_NAME:
+    with open(mf) as f:
+        name = json.load(f).get("name", "")
+    # 任何以 gemma3n 开头的 tag（如 gemma3n:latest、gemma3n:e2b）都算
+    if name.startswith(BASE_NAME):
         manifest = mf
         break
 if manifest is None:
