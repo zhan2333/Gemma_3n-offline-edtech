@@ -1,0 +1,11 @@
+name: Env-Check
+on: [push]             # 每次 push 自动跑
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4     # 拉代码
+      - uses: mamba-org/setup-micromamba@v1   # 建环境
+        with: {environment-file: environment.yml}
+      - run: python src/infer/cli.py  # 小脚本，跑通即成功
